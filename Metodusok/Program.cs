@@ -12,6 +12,10 @@ namespace Metodusok
             {
                 Console.Write(szam + ", ");
             }
+            Console.WriteLine();
+            string szoveg = "Ez az óra jó, de sajnos nincs itt Koczka tanár úr.";
+            int darab = szovegElofordulas(szoveg, "Koczka");
+            Console.WriteLine($"Hányszor szerepel Koczka a szövegben: {darab} ");
 
         }
 
@@ -39,6 +43,18 @@ namespace Metodusok
                 }
             }
             return true;
+        }
+
+        static int szovegElofordulas(string szoveg,string alSzoveg)
+        {
+            int szam = 0;
+            int index = szoveg.IndexOf(alSzoveg);
+            while (index != -1)
+            {
+                szam++;
+                index = szoveg.IndexOf(alSzoveg, index + 1);
+            }
+            return szam;
         }
     }
 }
